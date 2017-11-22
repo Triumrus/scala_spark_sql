@@ -1,5 +1,5 @@
 # scala_spark_sql
-начало стандартные команды для выполнение задач на спарк sql
+# начало стандартные команды для выполнение задач на спарк sql
 
 %spark
 val df = spark.read
@@ -21,11 +21,22 @@ df.select($"_c2".as("login")).show
 %spark
 val query = """
 SELECT 
-_c80
-FROM logi
-where _c80 = '8151017800'
+a._c4
+FROM logi a
+left join logi2 b
+on a._c4 = b._c4
+where a._c4 = '1042'
 LIMIT 10
 """
+
+
+val result = spark.sql(query)
+result.show()
+// result.coalesce(1).write
+//     .options(Map("header"->"true","sep"->";"))
+//     .csv("hdfs://hadoop/tmp/kuzmichev")
+
+
 
 
 val result = spark.sql(query)
