@@ -38,11 +38,3 @@ result.show()
 
 
 
-
-val result = spark.sql(query)
-result.show()
-// result.coalesce(1).write
-//     .options(Map("header"->"true","sep"->";"))
-//     .csv("hdfs://hadoop/tmp/kuzmichev")
-
-
